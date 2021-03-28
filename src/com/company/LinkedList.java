@@ -39,6 +39,26 @@ public class LinkedList {
 
     }
 
+    public void deleteNode(int key) {
+        Node temp = this.head;
+        Node prev = null;
+        // Iterative Method
+        // To delete a node from the linkedlist, we need to do the following steps
+        // 1) Find the previous node to be deleted
+        // 2) Change the next of the previous node
+        // 3) Free memory for the node to be deleted
+        // 1,3,4,5
+        if(temp != null && temp.data != key) {
+            prev = temp; // prev = this.head, .. temp =
+            temp = temp.next;
+        }
+
+        if(temp == null) {
+            return;
+        }
+        prev.next = temp.next;
+    }
+
     public void append(int newData) {
         Node newNode = new Node(newData);
         if(this.head == null) {
